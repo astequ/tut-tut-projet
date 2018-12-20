@@ -115,4 +115,12 @@ class Author
         $this->mail = $mail;
     }
 
+    /**
+     * @return bool
+     */
+    public function check(): bool
+    {
+        return isset($this->surname) && isset($this->name) && isset($this->mail) && !empty($this->surname) && !empty($this->name) && !empty($this->mail);
+    }
+
 }

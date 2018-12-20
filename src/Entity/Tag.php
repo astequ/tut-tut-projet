@@ -71,5 +71,12 @@ class Tag
         $this->label = $label;
     }
 
+    /**
+     * @return bool
+     */
+    public function check(): bool
+    {
+        //TODO
+    }
 
 }

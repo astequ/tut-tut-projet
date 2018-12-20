@@ -154,5 +154,13 @@ class Entry
         $this->tags->add($tag);
     }
 
+    /**
+     * @return bool
+     */
+    public function check(): bool
+    {
+        return isset($this->title) && isset($this->date) && isset($this->content) && isset($this->author) && !empty($this->title) && !empty($this->content);
+    }
+
 
 }
