@@ -37,21 +37,6 @@ class Author
     protected $mail;
 
     /**
-     * Author constructor.
-     * @param int $id
-     * @param string $surname
-     * @param string $name
-     * @param string $mail
-     */
-    public function __construct(int $id, string $surname, string $name, string $mail)
-    {
-        $this->id = $id;
-        $this->surname = $surname;
-        $this->name = $name;
-        $this->mail = $mail;
-    }
-
-    /**
      * @return int
      */
     public function getId()
@@ -62,9 +47,11 @@ class Author
     /**
      * @param int $id
      */
-    public function setId(int $id): void
+    public function setId(int $id): self
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -78,9 +65,11 @@ class Author
     /**
      * @param string $surname
      */
-    public function setSurname(string $surname): void
+    public function setSurname(string $surname): self
     {
         $this->surname = $surname;
+
+        return $this;
     }
 
     /**
@@ -94,9 +83,11 @@ class Author
     /**
      * @param string $name
      */
-    public function setName(string $name): void
+    public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -110,9 +101,11 @@ class Author
     /**
      * @param string $mail
      */
-    public function setMail(string $mail): void
+    public function setMail(string $mail): self
     {
         $this->mail = $mail;
+
+        return $this;
     }
 
     /**
