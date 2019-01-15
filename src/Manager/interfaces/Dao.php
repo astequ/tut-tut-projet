@@ -6,7 +6,7 @@
  * Time: 13:59
  */
 
-namespace App\Manager;
+namespace App\Manager\interfaces;
 
 
 interface Dao

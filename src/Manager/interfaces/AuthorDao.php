@@ -8,9 +8,6 @@
 
 namespace App\Manager\interfaces;
 
-
-use App\Manager\Dao;
-
 interface AuthorDao extends Dao
 {
 

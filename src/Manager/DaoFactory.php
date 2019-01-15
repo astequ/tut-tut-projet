@@ -8,16 +8,16 @@
 
 namespace App\Manager;
 
+use App\Manager\classes\MySqlDaoFactory;
+
 abstract class DaoFactory
 {
-
-    public static const MYSQL = 0;
 
     public static function getDaoFactory($persistance): DaoFactory
     {
         $daof = null;
         switch ($persistance) {
-            case DaoFactory::MYSQL:
+            case Persistence::MYSQL:
                 $daof = new MySqlDaoFactory();
                 break;
         }

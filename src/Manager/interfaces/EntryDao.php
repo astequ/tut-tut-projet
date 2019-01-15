@@ -8,8 +8,6 @@
 
 namespace App\Manager\interfaces;
 
-use App\Manager\Dao;
-
 interface EntryDao extends Dao
 {
 

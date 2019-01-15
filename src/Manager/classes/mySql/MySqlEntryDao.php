@@ -6,8 +6,7 @@
  * Time: 15:00
  */
 
-namespace App\Manager\mySql;
-
+namespace App\Manager\classes\mySql;
 
 use App\Manager\interfaces\EntryDao;
 
@@ -48,5 +47,6 @@ class MySqlEntryDao implements EntryDao
     function getById($e)
     {
         // TODO: Implement getById() method.
+        return "It works for an entry";
     }
 }

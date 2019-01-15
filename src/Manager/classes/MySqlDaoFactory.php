@@ -6,15 +6,17 @@
  * Time: 14:39
  */
 
-namespace App\Manager;
+namespace App\Manager\classes;
 
 
+use App\Manager\classes\mySql\MySqlAuthorDao;
+use App\Manager\classes\mySql\MySqlEntryDao;
+use App\Manager\classes\mySql\MySqlTagDao;
+use App\Manager\DaoFactory;
 use App\Manager\interfaces\AuthorDao;
 use App\Manager\interfaces\EntryDao;
 use App\Manager\interfaces\TagDao;
-use App\Manager\mySql\MySqlAuthorDao;
-use App\Manager\mySql\MySqlEntryDao;
-use App\Manager\mySql\MySqlTagDao;
+
 
 class MySqlDaoFactory extends DaoFactory
 {
