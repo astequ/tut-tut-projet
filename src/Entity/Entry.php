@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToOne;
 
 /**
@@ -41,8 +42,8 @@ class Entry
      */
     protected $content;
     /**
-     * One Entry has one Author
-     * @OneToOne(targetEntity="Author",cascade={"persist"})
+     * Many Entries has one Author
+     * @ManyToOne(targetEntity="Author",cascade={"persist"})
      * @JoinColumn(name="author", referencedColumnName="id")
      */
     protected $author;
@@ -51,7 +52,7 @@ class Entry
      * @ManyToMany(targetEntity="Tag",cascade={"persist"})
      * @JoinTable(name="entry_tags",
      *      joinColumns={@JoinColumn(name="entry", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="tag", referencedColumnName="id", unique=true)}
+     *      inverseJoinColumns={@JoinColumn(name="tag", referencedColumnName="id")}
      *      )
      */
     protected $tags;
