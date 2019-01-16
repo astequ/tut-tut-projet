@@ -72,7 +72,7 @@ class TestController extends AbstractController
             ->setLabel('testaie');
         $tagManager->persist($tag2);*/
 
-        $entry = new Entry();
+        /*$entry = new Entry();
         $entry
             ->setTitle('StpMarche')
             ->setDate(date_create())
@@ -89,10 +89,10 @@ class TestController extends AbstractController
             ->setContent('aleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeed')
             ->setAuthor($authorManager->find(2))
             ->addTag($tagManager->find(1));
-        $entryManager->persist($entry);
+        $entryManager->persist($entry);*/
 
         return new Response(
-            '<html lang="fr"><body>yay</body></html>'
+            $this->render('base.html.twig',$entries = $entryManager->findAll())
         );
     }
 }

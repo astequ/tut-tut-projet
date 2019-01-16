@@ -58,14 +58,14 @@
                         <div class="demo-card-event mdl-card mdl-shadow--2dp">
                             <div class="mdl-card__title">
                                 <h4>
-                                    {{ entry->getTitle() }}
+                                    {{ entry.title }}
                                 </h4>
                                 <div class="mdl-card__subtitle-text">
-                                    {{ entry->getAuthor()->getFullName()}}
+                                    {{ entry.author.name}}
                                 </div>
                             </div>
                             <div class="mdl-card__supporting-text mdl-card--expand">
-                                {{ entry->getPreview() }}
+                                {{ entry.preview }}
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
                                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">

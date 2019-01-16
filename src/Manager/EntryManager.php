@@ -61,9 +61,14 @@ class EntryManager
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function delete(Author $entry)
+    public function delete(Entry $entry)
     {
         $this->entityManager->remove($entry);
         $this->entityManager->flush();
+    }
+
+    public function findAll() : array
+    {
+        return $this->entryRepository->findAll();
     }
 }
