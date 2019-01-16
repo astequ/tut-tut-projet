@@ -145,6 +145,25 @@ class Entry
     }
 
     /**
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param mixed $author
+     * @return Entry
+     */
+    public function setAuthor(Author $author): self
+    {
+        $this->author = $author;
+        return $this;
+    }
+
+
+    /**
      * @param Tag $tag
      * @return Entry
      */

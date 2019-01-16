@@ -10,19 +10,23 @@ namespace App\Controller;
 
 
 use App\Entity\Author;
+use App\Entity\Entry;
+use App\Entity\Tag;
 use App\Manager\AuthorManager;
 use App\Manager\classes\mySql\MySqlAuthorDao;
 use App\Manager\DaoFactory;
+use App\Manager\EntryManager;
 use App\Manager\Persistence;
+use App\Manager\TagManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class TestController extends AbstractController
 {
-    public function yay(AuthorManager $authorManager, Request $request)
+    public function yay(AuthorManager $authorManager, TagManager $tagManager, EntryManager $entryManager, Request $request)
     {
-        $post = $request->request->all();
+        /*$post = $request->request->all();
         $author = new Author();
         $author
             ->setId(4)
@@ -43,8 +47,52 @@ class TestController extends AbstractController
         $dao = DaoFactory::getDaoFactory(Persistence::MYSQL);
         $result = $dao->getEntryDao();
 
+        */
+        /*$author = new Author();
+        $author
+            ->setSurname('Toto')
+            ->setMail('bobo@bobo.fr')
+            ->setName('My name');
+        $authorManager->persist($author);
+
+        $author2 = new Author();
+        $author2
+            ->setSurname('Africa')
+            ->setMail('afaf@afri.ca')
+            ->setName('Shinedown');
+        $authorManager->persist($author2);*/
+
+        /*$tag = new Tag();
+        $tag
+            ->setLabel('testouille');
+        $tagManager->persist($tag);
+
+        $tag2 = new Tag();
+        $tag2
+            ->setLabel('testaie');
+        $tagManager->persist($tag2);*/
+
+        $entry = new Entry();
+        $entry
+            ->setTitle('StpMarche')
+            ->setDate(date_create())
+            ->setContent('Promis ça marche stp crois moi')
+            ->setAuthor($authorManager->find(1))
+            ->addTag($tagManager->find(1))
+            ->addTag($tagManager->find(2));
+        $entryManager->persist($entry);
+
+        $entry = new Entry();
+        $entry
+            ->setTitle('plzwork')
+            ->setDate(date_create())
+            ->setContent('aleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeed')
+            ->setAuthor($authorManager->find(2))
+            ->addTag($tagManager->find(1));
+        $entryManager->persist($entry);
+
         return new Response(
-            '<html lang="fr"><body>' . $result->getById(5) . '</body></html>'
+            '<html lang="fr"><body>yay</body></html>'
         );
     }
 }

@@ -29,7 +29,7 @@ class TagManager
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
-        $this->tagRepository = $entityManager->getRepository(Author::class);
+        $this->tagRepository = $entityManager->getRepository(Tag::class);
     }
 
     /**
