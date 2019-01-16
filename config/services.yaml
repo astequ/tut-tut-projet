@@ -24,9 +24,6 @@ services:
     resource: '../src/Controller'
     tags: ['controller.service_arguments']
 
-  App\Dao\EntryDAOInterface:
-    class: 'App\Dao\EntryMysqlDao'
-
   App\Manager\AuthorManager:
     class: 'App\Manager\AuthorManager'
     arguments:
@@ -34,6 +31,11 @@ services:
 
   App\Manager\EntryManager:
     class: 'App\Manager\EntryManager'
+    arguments:
+      $entityManager: '@doctrine.orm.entity_manager'
+
+  App\Manager\TagManager:
+    class: 'App\Manager\TagManager'
     arguments:
       $entityManager: '@doctrine.orm.entity_manager'
 
