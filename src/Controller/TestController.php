@@ -92,7 +92,7 @@ class TestController extends AbstractController
         $entryManager->persist($entry);*/
 
         return new Response(
-            $this->render('base.html.twig',$entries = $entryManager->findAll())
+            $this->render('base.html.twig', ['entries' => $entryManager->findAll()])
         );
     }
 }

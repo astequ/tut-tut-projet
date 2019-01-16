@@ -163,6 +163,12 @@ class Entry
         return $this;
     }
 
+    public function getPreview(): String
+    {
+        $out = wordwrap($this->content, 80, "\n", false);
+        $out = explode("\n", $out, 2)[0] . '…';
+        return $out;
+    }
 
     /**
      * @param Tag $tag
