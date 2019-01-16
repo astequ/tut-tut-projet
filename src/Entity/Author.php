@@ -46,6 +46,7 @@ class Author
 
     /**
      * @param int $id
+     * @return Author
      */
     public function setId(int $id): self
     {
@@ -64,6 +65,7 @@ class Author
 
     /**
      * @param string $surname
+     * @return Author
      */
     public function setSurname(string $surname): self
     {
@@ -82,6 +84,7 @@ class Author
 
     /**
      * @param string $name
+     * @return Author
      */
     public function setName(string $name): self
     {
@@ -100,6 +103,7 @@ class Author
 
     /**
      * @param string $mail
+     * @return Author
      */
     public function setMail(string $mail): self
     {

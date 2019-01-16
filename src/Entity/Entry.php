@@ -58,19 +58,9 @@ class Entry
 
     /**
      * Entry constructor.
-     * @param int $id
-     * @param string $title
-     * @param DateTime $date
-     * @param string $content
-     * @param Author $author
      */
-    public function __construct(int $id, string $title, DateTime $date, string $content, Author $author)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->title = $title;
-        $this->date = $date;
-        $this->content = $content;
-        $this->author = $author;
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -84,10 +74,12 @@ class Entry
 
     /**
      * @param int $id
+     * @return Entry
      */
-    public function setId(int $id): void
+    public function setId(int $id): self
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -100,10 +92,12 @@ class Entry
 
     /**
      * @param string $title
+     * @return Entry
      */
-    public function setTitle(string $title): void
+    public function setTitle(string $title): self
     {
         $this->title = $title;
+        return $this;
     }
 
     /**
@@ -116,10 +110,12 @@ class Entry
 
     /**
      * @param DateTime $date
+     * @return Entry
      */
-    public function setDate(DateTime $date): void
+    public function setDate(DateTime $date): self
     {
         $this->date = $date;
+        return $this;
     }
 
     /**
@@ -132,10 +128,12 @@ class Entry
 
     /**
      * @param string $content
+     * @return Entry
      */
-    public function setContent(string $content): void
+    public function setContent(string $content): self
     {
         $this->content = $content;
+        return $this;
     }
 
     /**
@@ -148,10 +146,12 @@ class Entry
 
     /**
      * @param Tag $tag
+     * @return Entry
      */
-    public function addTag(Tag $tag): void
+    public function addTag(Tag $tag): self
     {
         $this->tags->add($tag);
+        return $this;
     }
 
     /**

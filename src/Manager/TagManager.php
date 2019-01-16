@@ -1,61 +1,68 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: astequ
+ * Date: 16/01/19
+ * Time: 14:38
+ */
+
 namespace App\Manager;
 
 
-use App\Entity\Author;
+use App\Entity\Tag;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 
-class AuthorManager
+class TagManager
 {
     /** @var EntityManager */
     protected $entityManager;
 
 
     /** @var EntityRepository */
-    protected $authorRepository;
+    protected $tagRepository;
 
     /**
-     * AuthorManager constructor.
+     * TagManager constructor.
      * @param EntityManager $entityManager
      */
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
-        $this->authorRepository= $entityManager->getRepository(Author::class);
+        $this->tagRepository = $entityManager->getRepository(Author::class);
     }
 
     /**
      * @param int $id
-     * @return Author
+     * @return Tag
      */
-    public function find(int $id): Author
+    public function find(int $id): Tag
     {
-        return $this->authorRepository->findOneById($id);
+        return $this->tagRepository->findOneById($id);
     }
 
     /**
-     * @param Author $author
-     * @return Author
+     * @param Tag $tag
+     * @return Tag
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function persist(Author $author)
+    public function persist(Tag $tag)
     {
-        $this->entityManager->persist($author);
+        $this->entityManager->persist($tag);
         $this->entityManager->flush();
 
-        return $author;
+        return $tag;
     }
 
     /**
-     * @param Author $author
+     * @param Tag $tag
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function delete(Author $author)
+    public function delete(Tag $tag)
     {
-        $this->entityManager->remove($author);
+        $this->entityManager->remove($tag);
         $this->entityManager->flush();
     }
 }

@@ -29,17 +29,6 @@ class Tag
     protected $label;
 
     /**
-     * Tag constructor.
-     * @param int $id
-     * @param string $label
-     */
-    public function __construct(int $id, string $label)
-    {
-        $this->id = $id;
-        $this->label = $label;
-    }
-
-    /**
      * @return int
      */
     public function getId(): int
@@ -49,10 +38,12 @@ class Tag
 
     /**
      * @param int $id
+     * @return Tag
      */
-    public function setId(int $id): void
+    public function setId(int $id): self
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -65,10 +56,12 @@ class Tag
 
     /**
      * @param string $label
+     * @return Tag
      */
-    public function setLabel(string $label): void
+    public function setLabel(string $label): self
     {
         $this->label = $label;
+        return $this;
     }
 
     /**
