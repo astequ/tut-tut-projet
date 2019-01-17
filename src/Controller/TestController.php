@@ -96,43 +96,48 @@ class TestController extends AbstractController
 
         return new Response(
             $this->render('base.html.twig', ['entries' => $entryManager->findAll()])
-        );
+        );  
     }
 
-    public function yoy(EntryManager $entryManager, $page)
-    {
+    public function yoy(EntryManager $entryManager, $page) {
 
-        $page = $page + 0;
+        $page = $page +0;
 
         return new Response(
             $this->render('article.html.twig', ['entry' => $entryManager->find($page)])
         );
     }
 
-    public function yuy()
-    {
+    public function yuy() {
 
         return new Response(
             $this->render('new.html.twig')
         );
     }
 
-    public function process(AuthorManager $authorManager, TagManager $tagManager, EntryManager $entryManager, Request $request)
-    {
+    public function process(AuthorManager $authorManager, TagManager $tagManager, EntryManager $entryManager, Request $request) {
 
         $post = $request->request->all();
 
-        $entry = new Entry();
-        $entry
-            ->setTitle($post['title_article'])
-            ->setDate(date_create())
-            ->setContent($post['content_article'])
-            ->setAuthor($authorManager->find(1));
-        $entryManager->persist(TagUtils::manageTags(TagUtils::format($post['tags']), $tagManager, $entry));
+        if (($post['title_article__'] == "") && ($post['content_article__'] == "") && ($post['tags'] == "")){
+            return new Response(
+                $this->render('base.html.twig', ['entries' => $entryManager->findAll()])
+            //var_dump($post)
+            );
+        }
+        else {
+            $entry = new Entry();
+            $entry
+                ->setTitle($post['title_article__'])
+                ->setDate(date_create())
+                ->setContent($post['content_article'])
+                ->setAuthor($authorManager->find(1));
+            $entryManager->persist(TagUtils::manageTags(TagUtils::format($post['tags']),$tagManager,$entry));
 
-        return new Response(
-            $this->render('base.html.twig', ['entries' => $entryManager->findAll()])
-        //var_dump($post)
-        );
+            return new Response(
+                $this->render('base.html.twig', ['entries' => $entryManager->findAll()])
+            //var_dump($post)
+            );
+        }
     }
 }
