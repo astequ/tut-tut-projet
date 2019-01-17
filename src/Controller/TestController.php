@@ -119,7 +119,7 @@ class TestController extends AbstractController
 
         $post = $request->request->all();
 
-        if (($post['title_article__'] == "") && ($post['content_article__'] == "") && ($post['tags'] == "")){
+        if (($post['title_article'] == "") && ($post['content_article'] == "") && ($post['tags'] == "")) {
             return new Response(
                 $this->render('base.html.twig', ['entries' => $entryManager->findAll()])
             //var_dump($post)
@@ -128,7 +128,7 @@ class TestController extends AbstractController
         else {
             $entry = new Entry();
             $entry
-                ->setTitle($post['title_article__'])
+                ->setTitle($post['title_article'])
                 ->setDate(date_create())
                 ->setContent($post['content_article'])
                 ->setAuthor($authorManager->find(1));

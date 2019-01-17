@@ -41,7 +41,7 @@ class Entry
      */
     protected $content;
     /**
-     * Many Entries has one Author
+     * Many Entries have one Author
      * @ManyToOne(targetEntity="Author",cascade={"persist"})
      * @JoinColumn(name="author", referencedColumnName="id")
      */

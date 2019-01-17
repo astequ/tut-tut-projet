@@ -129,15 +129,15 @@
                 <form action="{{ path('process') }}" name="entry_redaction_form" method="post">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="text" id="title_article" name="title_article">
-                        <label class="mdl-textfield__label" for="title_article">Le titre de votre article vas ici
+                        <label class="mdl-textfield__label" for="title_article">Le titre de votre article va ici
                             !</label>
                     </div>
                     <!-- Floating Multiline Textfield -->
                     <h4>Contenu de l'article</h4>
                     <div class="mdl-textfield mdl-js-textfield">
-                        <textarea class="mdl-textfield__input" type="text" rows="3" id="content_article"
-                                  name="content_article"></textarea>
-                        <label class="mdl-textfield__label" for="content_article">Le contenu de votre article vas ici
+                        <textarea class="mdl-textfield__input" rows="3" id="content_article"
+                                  name="content_article" style="resize: both"></textarea>
+                        <label class="mdl-textfield__label" for="content_article">Le contenu de votre article va ici
                             !</label>
                     </div>
                     <!-- Simple Textfield -->
@@ -149,7 +149,7 @@
                     </div>
                     <div>
                         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                               type="submit" name="valider" value="Valider"></a>
+                               type="submit" name="valider" value="Valider">
                     </div>
                 </form>
             </div>
@@ -157,15 +157,6 @@
                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">
                 Annuler </a>
         </div>
-        <footer class="demo-footer mdl-mini-footer">
-            <div class="mdl-mini-footer--left-section">
-                <ul class="mdl-mini-footer--link-list">
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Privacy and Terms</a></li>
-                    <li><a href="#">User Agreement</a></li>
-                </ul>
-            </div>
-        </footer>
     </main>
 </div>
 </body>
