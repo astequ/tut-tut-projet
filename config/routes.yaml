@@ -1,3 +1,11 @@
 index:
   path: /
   controller: App\Controller\TestController::yay
+
+article:
+  path: /article/{page}
+  controller: App\Controller\TestController::yoy
+  defaults:
+    page: 14
+  requirements:
+    page: '\d+'

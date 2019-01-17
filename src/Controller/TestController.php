@@ -18,6 +18,8 @@ use App\Manager\DaoFactory;
 use App\Manager\EntryManager;
 use App\Manager\Persistence;
 use App\Manager\TagManager;
+use PhpParser\Node\Expr\Cast\Int_;
+use PhpParser\Node\Scalar\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -93,6 +95,15 @@ class TestController extends AbstractController
 
         return new Response(
             $this->render('base.html.twig', ['entries' => $entryManager->findAll()])
+        );
+    }
+
+    public function yoy(EntryManager $entryManager, $page) {
+
+        $page = $page +0;
+
+        return new Response(
+            $this->render('article.html.twig', ['entry' => $entryManager->find($page)])
         );
     }
 }

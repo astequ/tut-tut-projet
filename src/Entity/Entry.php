@@ -140,7 +140,7 @@ class Entry
     /**
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
-    public function getTags(): \Doctrine\Common\Collections\ArrayCollection
+    public function getTags(): object
     {
         return $this->tags;
     }
@@ -165,7 +165,7 @@ class Entry
 
     public function getPreview(): String
     {
-        $out = wordwrap($this->content, 80, "\n", false);
+        $out = wordwrap($this->content, 40, "\n", false);
         $out = explode("\n", $out, 2)[0] . '…';
         return $out;
     }
