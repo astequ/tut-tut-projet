@@ -12,6 +12,7 @@ namespace App\Manager;
 use App\Entity\Tag;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use PhpParser\Node\Expr\Array_;
 
 class TagManager
 {
@@ -36,9 +37,14 @@ class TagManager
      * @param int $id
      * @return Tag
      */
-    public function find(int $id): Tag
+    public function find(int $id): ?Tag
     {
         return $this->tagRepository->findOneById($id);
+    }
+
+    public function findByLabel(String $lb): ?Tag
+    {
+        return $this->tagRepository->findOneByLabel($lb);
     }
 
     /**

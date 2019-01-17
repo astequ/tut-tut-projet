@@ -57,7 +57,7 @@ class EntryManager
     }
 
     /**
-     * @param Author $entry
+     * @param Entry $entry
      * @throws ORMException
      * @throws OptimisticLockException
      */

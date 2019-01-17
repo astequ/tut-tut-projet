@@ -15,7 +15,6 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\OneToOne;
 
 /**
  * @ORM\Entity
@@ -62,7 +61,7 @@ class Entry
      */
     public function __construct()
     {
-        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tags = [];
     }
 
     /**
@@ -138,7 +137,7 @@ class Entry
     }
 
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @return array
      */
     public function getTags(): object
     {
@@ -176,7 +175,11 @@ class Entry
      */
     public function addTag(Tag $tag): self
     {
-        $this->tags->add($tag);
+        foreach ($this->tags as $currentTag) {
+            if (strcmp($tag->getLabel(), $currentTag->getLabel()) == 0)
+                return $this;
+        }
+        $this->tags[] = $tag;
         return $this;
     }
 
