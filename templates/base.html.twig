@@ -26,6 +26,18 @@
         right: 20px;
         z-index: 2;
     }
+
+    .mdl-grid{
+        justify-content: center;
+    }
+
+    mdl-card__subtitle-text{
+        font-size:14px;color:rgba(0,0,0,.54);margin:0
+    }
+
+    #tag-group{
+        overflow: scroll;
+    }
 </style>
 
 <body>
@@ -67,8 +79,16 @@
                             <div class="mdl-card__supporting-text mdl-card--expand">
                                 {{ entry.preview }}
                             </div>
+                            <div id="tag-group" class="mdl-card__actions mdl-card--border">
+                                {% for tag in entry.tags  %}
+                                <span class="mdl-chip">
+									    <span class="mdl-chip__text">{{ tag.label }}</span>
+									</span>
+                                {% endfor %}
+                                <div class="mdl-layout-spacer"></div>
+                            </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                <a href="{{ path('article', {'page': entry.id}) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                                     Consulter
                                 </a>
                                 <div class="mdl-layout-spacer"></div>
