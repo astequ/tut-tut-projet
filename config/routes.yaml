@@ -1,10 +1,10 @@
 index:
   path: /
-  controller: App\Controller\TestController::yay
+  controller: App\Controller\MainController::Main
 
 article:
   path: /article/{page}
-  controller: App\Controller\TestController::yoy
+  controller: App\Controller\MainController::Article
   defaults:
     page: 14
   requirements:
@@ -12,8 +12,8 @@ article:
 
 new:
   path: /new
-  controller: App\Controller\TestController::yuy
+  controller: App\Controller\MainController::Redaction
 
 process:
-  path: /test
-  controller: App\Controller\TestController::process
+  path: /proc
+  controller: App\Controller\MainController::Process

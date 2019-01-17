@@ -131,7 +131,7 @@ class Entry
      * @return Entry
      */
     public function setContent(string $content): self
-    {
+    {   
         $this->content = $content;
         return $this;
     }
