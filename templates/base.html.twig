@@ -12,32 +12,38 @@
 <style>
     .demo-card-event > .mdl-card__actions {
         display: flex;
-        box-sizing:border-box;
+        box-sizing: border-box;
         align-items: center;
     }
 
-    .custom{
-        width : auto;
+    .custom {
+        width: auto;
     }
 
-    .mdl-button--fab{
+    .mdl-button--fab {
         position: fixed;
         bottom: 20px;
         right: 20px;
         z-index: 2;
     }
 
-    .mdl-grid{
+    .mdl-grid {
         justify-content: center;
     }
 
-    mdl-card__subtitle-text{
-        font-size:14px;color:rgba(0,0,0,.54);margin:0
+    #tag-group {
+        overflow-x: scroll;
+        scrollbar-width: thin;
     }
 
-    #tag-group{
-        overflow: scroll;
+    .mdl-card__subtitle-text::before {
+        content: "Par ";
     }
+
+    h4 {
+        margin-right: 10px;
+    }
+
 </style>
 
 <body>
@@ -73,22 +79,23 @@
                                     {{ entry.title }}
                                 </h4>
                                 <div class="mdl-card__subtitle-text">
-                                    {{ entry.author.name}}
+                                    {{ entry.author.surname }} {{ entry.author.name }}
                                 </div>
                             </div>
                             <div class="mdl-card__supporting-text mdl-card--expand">
                                 {{ entry.preview }}
                             </div>
                             <div id="tag-group" class="mdl-card__actions mdl-card--border">
-                                {% for tag in entry.tags  %}
-                                <span class="mdl-chip">
+                                {% for tag in entry.tags %}
+                                    <span class="mdl-chip">
 									    <span class="mdl-chip__text">{{ tag.label }}</span>
 									</span>
                                 {% endfor %}
                                 <div class="mdl-layout-spacer"></div>
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <a href="{{ path('article', {'page': entry.id}) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                <a href="{{ path('article', {'page': entry.id}) }}"
+                                   class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                                     Consulter
                                 </a>
                                 <div class="mdl-layout-spacer"></div>
@@ -101,9 +108,11 @@
             </div>
 
             <!-- Colored FAB button with ripple -->
-            <a href="{{ path('new') }}"><button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                <i class="material-icons">add</i>
-            </button></a>
+            <a href="{{ path('new') }}">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">add</i>
+                </button>
+            </a>
 
         </div>
     </main>

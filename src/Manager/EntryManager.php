@@ -67,7 +67,7 @@ class EntryManager
         $this->entityManager->flush();
     }
 
-    public function findAll() : array
+    public function findAll(): array
     {
         return $this->entryRepository->findAll();
     }

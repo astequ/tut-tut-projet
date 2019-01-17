@@ -99,23 +99,26 @@ class TestController extends AbstractController
         );
     }
 
-    public function yoy(EntryManager $entryManager, $page) {
+    public function yoy(EntryManager $entryManager, $page)
+    {
 
-        $page = $page +0;
+        $page = $page + 0;
 
         return new Response(
             $this->render('article.html.twig', ['entry' => $entryManager->find($page)])
         );
     }
 
-    public function yuy() {
+    public function yuy()
+    {
 
         return new Response(
             $this->render('new.html.twig')
         );
     }
 
-    public function process(AuthorManager $authorManager, TagManager $tagManager, EntryManager $entryManager, Request $request) {
+    public function process(AuthorManager $authorManager, TagManager $tagManager, EntryManager $entryManager, Request $request)
+    {
 
         $post = $request->request->all();
 
@@ -125,11 +128,11 @@ class TestController extends AbstractController
             ->setDate(date_create())
             ->setContent($post['content_article'])
             ->setAuthor($authorManager->find(1));
-        $entryManager->persist(TagUtils::manageTags(TagUtils::format($post['tags']),$tagManager,$entry));
+        $entryManager->persist(TagUtils::manageTags(TagUtils::format($post['tags']), $tagManager, $entry));
 
         return new Response(
             $this->render('base.html.twig', ['entries' => $entryManager->findAll()])
-            //var_dump($post)
+        //var_dump($post)
         );
     }
 }

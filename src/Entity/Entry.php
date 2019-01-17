@@ -164,8 +164,10 @@ class Entry
 
     public function getPreview(): String
     {
-        $out = wordwrap($this->content, 40, "\n", false);
+        $out = str_replace("\n", " ", $this->content);
+        $out = wordwrap($out, 30, "\n", true);
         $out = explode("\n", $out, 2)[0] . '…';
+        $out = str_replace("#", "", $out);
         return $out;
     }
 
