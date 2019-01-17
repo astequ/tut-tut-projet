@@ -121,7 +121,7 @@ class TestController extends AbstractController
 
         $entry = new Entry();
         $entry
-            ->setTitle($post['title_article__'])
+            ->setTitle($post['title_article'])
             ->setDate(date_create())
             ->setContent($post['content_article'])
             ->setAuthor($authorManager->find(1));
