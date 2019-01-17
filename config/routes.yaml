@@ -13,3 +13,7 @@ article:
 new:
   path: /new
   controller: App\Controller\TestController::yuy
+
+process:
+  path: /test
+  controller: App\Controller\TestController::process

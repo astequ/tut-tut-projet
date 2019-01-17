@@ -18,6 +18,7 @@ use App\Manager\DaoFactory;
 use App\Manager\EntryManager;
 use App\Manager\Persistence;
 use App\Manager\TagManager;
+use App\Utilities\TagUtils;
 use PhpParser\Node\Expr\Cast\Int_;
 use PhpParser\Node\Scalar\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -111,6 +112,24 @@ class TestController extends AbstractController
 
         return new Response(
             $this->render('new.html.twig')
+        );
+    }
+
+    public function process(AuthorManager $authorManager, TagManager $tagManager, EntryManager $entryManager, Request $request) {
+
+        $post = $request->request->all();
+
+        $entry = new Entry();
+        $entry
+            ->setTitle($post['title_article__'])
+            ->setDate(date_create())
+            ->setContent($post['content_article'])
+            ->setAuthor($authorManager->find(1));
+        $entryManager->persist(TagUtils::manageTags(TagUtils::format($post['tags']),$tagManager,$entry));
+
+        return new Response(
+            $this->render('base.html.twig', ['entries' => $entryManager->findAll()])
+            //var_dump($post)
         );
     }
 }

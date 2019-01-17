@@ -30,7 +30,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css">
-    <link rel="stylesheet" href="styles.css">
+
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
     <style>
     #view-source {
       position: fixed;
@@ -123,23 +125,26 @@
             </h3>
             <!-- Textfield with Floating Label -->
             <h4>Titre de l'article</h4>
-            <form action="process.php" name="entry_redaction_form" method="post">
+            <form action="{{ path('process') }}" name="entry_redaction_form" method="post">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="title_article" name="title_article  ">
-                <label class="mdl-textfield__label" for="titlearti">Le titre de votre article vas ici !</label>
+                <input class="mdl-textfield__input" type="text" id="title_article" name="title_article">
+                <label class="mdl-textfield__label" for="title_article">Le titre de votre article vas ici !</label>
               </div>
             <!-- Floating Multiline Textfield -->
             <h4>Contenu de l'article</h4>
               <div class="mdl-textfield mdl-js-textfield">
                 <textarea class="mdl-textfield__input" type="text" rows= "3" id="content_article" name="content_article" ></textarea>
-                <label class="mdl-textfield__label" for="contentarti">Le contenu de votre article vas ici !</label>
+                <label class="mdl-textfield__label" for="content_article">Le contenu de votre article vas ici !</label>
               </div>
               <!-- Simple Textfield -->
               <h4>Tags</h4>
               <p><i>Veuillez séparer vos tags par des virgules, merci!</i></p>
               <div class="mdl-textfield mdl-js-textfield">
                 <input class="mdl-textfield__input" type="text" id="tags" name="tags">
-                <label class="mdl-textfield__label" for="sample1">Les tags de votre article vont ici !</label>
+                <label class="mdl-textfield__label" for="tags">Les tags de votre article vont ici !</label>
+              </div>
+              <div>
+                <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" name="valider" value="Valider"></a>
               </div>
             </form>
           </div>
