@@ -9,3 +9,7 @@ article:
     page: 14
   requirements:
     page: '\d+'
+
+new:
+  path: /new
+  controller: App\Controller\TestController::yuy

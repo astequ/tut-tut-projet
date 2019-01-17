@@ -106,4 +106,11 @@ class TestController extends AbstractController
             $this->render('article.html.twig', ['entry' => $entryManager->find($page)])
         );
     }
+
+    public function yuy() {
+
+        return new Response(
+            $this->render('new.html.twig')
+        );
+    }
 }
